@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html>
+
+  <head>
+
+    <title>社説判別機</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+  h1 {
+  color: #364e96;/*文字色*/
+  padding: 0.5em 0;/*上下の余白*/
+  border-top: solid 3px #364e96;/*上線*/
+  border-bottom: solid 3px #364e96;/*下線*/},
+
+  input#submit_button {
+
+  display: inline-block;
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: .4s;
+}
+</style>
+
+
+  </head>
+
+  <body>
+<h1>社説から新聞社を予測するプログラム</h1>
+
+
+
+<h2>社説を入力するとどこの新聞社か予測してくれるプログラムです.
+予測精度は80%ぐらい.</h2>
+<h4>現在判別可能なのは朝日,毎日,日経,読売,産経です.</h4>
+<h3>詳しくは<a href="https://qiita.com/interharuki/items/fcfc3016c72b85ee9b4d">こちら</a>
+</h3>
+
+{% from "_formhelpers.html" import render_field %}
+
+
+
+<form method=post action="/results">
+
+  <dl>
+
+	{{ render_field(form.moviereview, cols='80', rows='30') }}
+
+  </dl>
+
+  <div   style = "margin-left : 275px ;">
+
+	  <input type=submit value='判別する' name='submit_btn' style ="
+  font-size: 25px;
+  display: inline-block;
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: .4s;">
+
+  </div>
+
+</form>
+
+
+
+  </body>
+
+</html>

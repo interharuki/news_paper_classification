@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+
+  <head>
+
+    <title>社説判別機</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+  h1 {
+  color: #364e96;/*文字色*/
+  padding: 0.5em 0;/*上下の余白*/
+  border-top: solid 3px #364e96;/*上線*/
+  border-bottom: solid 3px #364e96;/*下線*/}
+  .button {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.button:hover {
+  background: #67c5ff;
+  color: white;
+}
+</style>
+  </head>
+
+  <body>
+
+<h1>社説から新聞社を予測するプログラム</h1>
+
+
+
+
+
+
+<h3>結果:</h3>
+
+
+<div style = "font-size: 50px" >この文章は <strong style= "color: red" >{{ prediction }}</strong>っぽい
+
+	 (確率: {{ probability }}%).</div>
+
+<div> 
+	朝日新聞: {{ asahi_prob }}%<br>毎日新聞: {{ mainichi_prob }}%<br>日経新聞: {{ nikkei_prob }}%<br>読売新聞: {{ yomiuri_prob }}%<br>産経新聞: {{ sankei_prob }}%.</div>
+
+
+<h3>入力記事:</h3>
+
+<div>{{ content }}</div>
+
+
+
+
+
+<div id='button'>
+
+	  <form action="/">
+
+	    <input type=submit value='もう一回判別する' class = button>
+
+	  </form>
+
+</div>
+
+
+
+  </body>
+
+</html>
